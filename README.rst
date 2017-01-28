@@ -9,6 +9,7 @@ modified it so that it won't compile with the LGPL code, but it's still
 there in the src folder. The references to it have just been commented
 out.
 The following optional modules contain LGPL code:
+
 * gfxdraw (uses the SDL1 version of SDL_gfx for some functions; the
   draw module contains calls to here so watch out for that)
 * sprite (entirely pygame code)
