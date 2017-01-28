@@ -30,9 +30,9 @@ import pygame_sdl2
 
 import warnings
 
-cdef extern from "src/surface.h" nogil:
-    int pygame_Blit (SDL_Surface * src, SDL_Rect * srcrect,
-                 SDL_Surface * dst, SDL_Rect * dstrect, int the_args);
+#cdef extern from "src/surface.h" nogil:
+#    int pygame_Blit (SDL_Surface * src, SDL_Rect * srcrect,
+#                 SDL_Surface * dst, SDL_Rect * dstrect, int the_args);
 
 cdef void move_pixels(Uint8 *src, Uint8 *dst, int h, int span, int srcpitch, int dstpitch) nogil:
     if src < dst:
@@ -222,10 +222,10 @@ cdef class Surface:
 
         with nogil:
 
-            if source.surface.format.Amask or special_flags:
-                err = pygame_Blit(source.surface, area_ptr, self.surface, &dest_rect, special_flags)
-            else:
-                err = SDL_UpperBlit(source.surface, area_ptr, self.surface, &dest_rect)
+#            if source.surface.format.Amask or special_flags:
+#                err = pygame_Blit(source.surface, area_ptr, self.surface, &dest_rect, special_flags)
+#            else:
+            err = SDL_UpperBlit(source.surface, area_ptr, self.surface, &dest_rect)
 
         if err:
             raise error()
