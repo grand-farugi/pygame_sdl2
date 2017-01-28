@@ -1,3 +1,20 @@
+pygame_sdl2 uses some code from pygame. pygame is licensed under the
+LGPL2, new code written for pygame_sdl2 is licensed under the zlib
+license. This fork of pygame_sdl2 has been modified to make all LGPL
+code optional, so you can use it without having to comply with the
+LGPL.
+
+The only non-optional module with LGPL code is the surface module. I
+modified it so that it won't compile with the LGPL code, but it's still
+there in the src folder. The references to it have just been commented
+out.
+The following optional modules contain LGPL code:
+* gfxdraw (uses the SDL1 version of SDL_gfx for some functions; the
+  draw module contains calls to here so watch out for that)
+* sprite (entirely pygame code)
+* sysfont (entirely pygame code)
+What follows is the original readme.
+
 ===========
 Pygame_sdl2
 ===========
